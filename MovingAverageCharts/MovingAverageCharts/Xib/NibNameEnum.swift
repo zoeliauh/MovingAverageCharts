@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum NibName: String {
+public enum NibName: String {
     case PERatioPriceView = "PERatioPriceView"
     case DateView = "DateView"
 }
