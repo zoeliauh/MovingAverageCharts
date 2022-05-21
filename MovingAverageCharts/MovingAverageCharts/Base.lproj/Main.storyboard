@@ -78,7 +78,7 @@
                                 <color key="backgroundColor" systemColor="systemBrownColor"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(元)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dlu-hj-pU6">
-                                <rect key="frame" x="385.5" y="650" width="18.5" height="12"/>
+                                <rect key="frame" x="385.5" y="656" width="18.5" height="12"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -93,7 +93,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="whu-ro-JJ1" secondAttribute="trailing" constant="20" id="EuA-ZK-o86"/>
                             <constraint firstItem="Hcg-Fj-gut" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="185" id="H17-7y-dCW"/>
                             <constraint firstItem="gmh-E2-Ddz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="125" id="HBm-01-ek3"/>
-                            <constraint firstItem="dlu-hj-pU6" firstAttribute="bottom" secondItem="whu-ro-JJ1" secondAttribute="bottom" id="LBS-0X-gt5"/>
+                            <constraint firstItem="dlu-hj-pU6" firstAttribute="bottom" secondItem="whu-ro-JJ1" secondAttribute="bottom" constant="6" id="LBS-0X-gt5"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dlu-hj-pU6" secondAttribute="trailing" constant="10" id="Qyx-77-2xj"/>
                             <constraint firstItem="Hcg-Fj-gut" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="RoO-ri-Qzp"/>
                             <constraint firstItem="fuI-3N-76q" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="eiv-Oc-lfR"/>

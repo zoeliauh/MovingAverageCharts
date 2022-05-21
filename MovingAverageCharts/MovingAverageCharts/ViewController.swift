@@ -1,6 +1,5 @@
 //
 //  ViewController.swift
-//  MovingAverageCharts
 //
 //  Created by woanjwu liauh on 2022/5/20.
 //
@@ -9,10 +8,6 @@ import UIKit
 import Charts
 
 class ViewController: UIViewController {
-    
-    var tsmcModel: TSMCModel?
-    let jsonParseHelper = JSONParseHelper()
-    var entries: [ChartDataEntry]?
     
     @IBOutlet private weak var dataView: DateView!
     @IBOutlet private weak var stockPriceView: PERatioPriceView!
@@ -24,6 +19,14 @@ class ViewController: UIViewController {
     @IBOutlet private weak var peRatioPriceView6: PERatioPriceView!
     @IBOutlet private weak var movingAverageChartView: LineChartView!
     
+    let jsonParseHelper = JSONParseHelper()
+    var tsmcModel: TSMCModel?
+    var allMovingAverageData: [MovingAverageData]?
+    var oneYearMovingAverageData: [MovingAverageData] = []
+    var yearMonth: [String] = []
+    var stockPrice: [String] = []
+    var lineChartDic: [String: String] = [:]
+    var entries: [ChartDataEntry]?
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,40 +38,77 @@ class ViewController: UIViewController {
         self.peRatioPriceView4.configureView(color: .blue, labelTitle: "14.3倍222.1")
         self.peRatioPriceView5.configureView(color: .purple, labelTitle: "10.4倍145.6")
         self.peRatioPriceView6.configureView(color: .black, labelTitle: "9.7倍43.4")
+        // get data
         tsmcModel = jsonParseHelper.parseJson(form: JSONFileName.TSMCMovingAverage.rawValue)
-        setupChart()
+        getData(monthCount: 12)
+        
+        // setup chart
+        setupXAxis()
+        setupYAxis()
+        setupData(xAxis: yearMonth, values: stockPrice)
     }
     
-    // 建立 ChartDataEntry
-    func setupChart() {
-        movingAverageChartView.noDataText = "wait loading..."
-        movingAverageChartView.xAxis.labelPosition = .bottom
-        movingAverageChartView.leftAxis.enabled = false
-        movingAverageChartView.xAxis.drawAxisLineEnabled = false
-        movingAverageChartView.legend.enabled = false
-        movingAverageChartView.rightAxis.forceLabelsEnabled = true
-        movingAverageChartView.drawMarkers = true
-        let points = [30.65, 44.56, 25.64, 34.66, 25.20, 30.65, 44.56, 25.64, 34.66, 25.20, 54.32, 51.23]
-        entries = points.enumerated().map {
-            return ChartDataEntry.init(x: Double($0), y: Double($1))
+    private func getData(monthCount: Int) {
+        guard let tsmcModel = tsmcModel else { return }
+        var index = 0
+        for i in tsmcModel.data {
+            allMovingAverageData = i.movingAverageData
+            guard let allMovingAverageData = allMovingAverageData else { return }
+            
+            for j in allMovingAverageData {
+                if index < monthCount {
+                    var date = j.date
+                    oneYearMovingAverageData.append(allMovingAverageData[index])
+                    date.insert("/", at: date.index(date.startIndex, offsetBy: 4))
+                    yearMonth.append(date)
+                    lineChartDic.updateValue(j.monthAveragePrice, forKey: "\(date)")
+                    index += 1
+                } else {
+//                    print(yearMonth)
+//                    print(lineChartDic)
+                    return
+                }
+            }
         }
+    }
+    
+    private func setupData(xAxis: [String], values: [String]) {
+        movingAverageChartView.noDataText = "wait loading..."
+        movingAverageChartView.setScaleEnabled(false)
+
+        let sortedKeysAndValue = lineChartDic.sorted { $0.0 < $1.0 }
+        for (key, value) in sortedKeysAndValue {
+//            print("\(key) -> \(value)")
+            yearMonth.append(key)
+            stockPrice.append(value)
+        }
+        
+        entries = stockPrice.enumerated().map {
+            return ChartDataEntry.init(x: Double($0), y: Double($1)!)
+        }
+        
         let set = LineChartDataSet.init(entries: entries)
         set.drawCirclesEnabled = false
         set.drawValuesEnabled = false
         set.lineWidth = 2.0
         set.setColor(.red)
+        set.drawHorizontalHighlightIndicatorEnabled = false
         
         let data = LineChartData(dataSets: [set])
         movingAverageChartView.data = data
     }
     
-    func setupXAxis() {
-        var xValue: [String] = []
-//        for i in 0..<entries?.count {
-//            let data = Calendar.current.date(byAdding: .day, value: i, to: Date()) ?? Date
-//            xValue.append("2/11")
-//        }
+    private func setupXAxis() {
+        movingAverageChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: yearMonth.reversed())
+        movingAverageChartView.xAxis.labelFont = UIFont.systemFont(ofSize: 5)
         movingAverageChartView.xAxis.labelPosition = .bottom
+        movingAverageChartView.xAxis.drawAxisLineEnabled = false
+    }
+    
+    private func setupYAxis() {
+        movingAverageChartView.rightAxis.labelFont = UIFont.systemFont(ofSize: 9)
+        movingAverageChartView.rightAxis.forceLabelsEnabled = true
         movingAverageChartView.leftAxis.enabled = false
+        movingAverageChartView.legend.enabled = false
     }
 }

@@ -1,6 +1,5 @@
 //
 //  UIViewExt.swift
-//  MovingAverageCharts
 //
 //  Created by woanjwu liauh on 2022/5/20.
 //
