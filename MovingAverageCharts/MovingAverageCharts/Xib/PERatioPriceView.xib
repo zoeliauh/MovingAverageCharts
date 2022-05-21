@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PERatioPriceView" customModule="MovingAverageCharts" customModuleProvider="target">
+            <connections>
+                <outlet property="colorBoxView" destination="3YI-pq-fbC" id="Zy6-Ml-fpW"/>
+                <outlet property="ratioPriceLabel" destination="2Wh-Dh-8sd" id="8wZ-QX-0YV"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="feu-Lq-eYy">
+            <rect key="frame" x="0.0" y="0.0" width="80" height="40"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3YI-pq-fbC">
+                    <rect key="frame" x="16" y="12.5" width="15" height="15"/>
+                    <color key="backgroundColor" systemColor="labelColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="15" id="MKG-FG-aze"/>
+                        <constraint firstAttribute="width" secondItem="3YI-pq-fbC" secondAttribute="height" id="d0c-Dd-iYy"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Wh-Dh-8sd">
+                    <rect key="frame" x="34" y="12.5" width="33" height="15"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="3YI-pq-fbC" firstAttribute="centerY" secondItem="feu-Lq-eYy" secondAttribute="centerY" id="1gd-bk-E4N"/>
+                <constraint firstItem="3YI-pq-fbC" firstAttribute="leading" secondItem="feu-Lq-eYy" secondAttribute="leadingMargin" id="7Ei-99-tAm"/>
+                <constraint firstItem="2Wh-Dh-8sd" firstAttribute="top" secondItem="3YI-pq-fbC" secondAttribute="top" id="A60-hk-PVi"/>
+                <constraint firstItem="2Wh-Dh-8sd" firstAttribute="bottom" secondItem="3YI-pq-fbC" secondAttribute="bottom" id="NOq-DN-vLT"/>
+                <constraint firstItem="2Wh-Dh-8sd" firstAttribute="leading" secondItem="3YI-pq-fbC" secondAttribute="trailing" constant="3" id="WRE-K1-Hij"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="340.57971014492756" y="284.59821428571428"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
