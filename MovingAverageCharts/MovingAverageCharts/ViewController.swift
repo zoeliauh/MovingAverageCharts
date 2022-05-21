@@ -9,6 +9,9 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    var tsmcModel: TSMCModel?
+    let jsonParseHelper = JSONParseHelper()
+    
     @IBOutlet private weak var dataView: DateView!
     @IBOutlet private weak var stockPriceView: PERatioPriceView!
     @IBOutlet private weak var peRatioPriceView1: PERatioPriceView!
@@ -17,9 +20,6 @@ class ViewController: UIViewController {
     @IBOutlet private weak var peRatioPriceView4: PERatioPriceView!
     @IBOutlet private weak var peRatioPriceView5: PERatioPriceView!
     @IBOutlet private weak var peRatioPriceView6: PERatioPriceView!
-    
-    var tsmcModel: TSMCModel?
-//    let jsonParseHelper: JSONParseHelper?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,23 +32,6 @@ class ViewController: UIViewController {
         self.peRatioPriceView4.configureView(color: .blue, labelTitle: "14.3倍222.1")
         self.peRatioPriceView5.configureView(color: .purple, labelTitle: "10.4倍145.6")
         self.peRatioPriceView6.configureView(color: .black, labelTitle: "9.7倍43.4")
-        parseJson()
-//        jsonParseHelper.parseJson(form: JSONFileName.TSMCMovingAverage.rawValue)
-    }
-    
-    private func parseJson() {
-        guard let path = Bundle.main.path(forResource: JSONFileName.TSMCMovingAverage.rawValue, ofType: "json") else { fatalError() }
-        
-        let url = URL(fileURLWithPath: path)
-
-        do {
-            let jsonData = try Data(contentsOf: url)
-            print(jsonData)
-            tsmcModel = try JSONDecoder().decode(TSMCModel.self, from: jsonData)
-            guard let tsmcModel = tsmcModel else { return }
-            print(tsmcModel)
-        } catch {
-            fatalError()
-        }
+        tsmcModel = jsonParseHelper.parseJson(form: JSONFileName.TSMCMovingAverage.rawValue)
     }
 }

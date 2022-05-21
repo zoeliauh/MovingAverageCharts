@@ -15,7 +15,6 @@ class JSONParseHelper {
         let url = URL(fileURLWithPath: path)
         do {
             let jsonData = try Data(contentsOf: url)
-            print(jsonData)
             let data = try JSONDecoder().decode(T.self, from: jsonData)
             print(data)
             return data

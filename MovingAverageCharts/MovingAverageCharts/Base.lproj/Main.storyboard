@@ -17,15 +17,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="gmh-E2-Ddz" userLabel="First Stack View">
-                                <rect key="frame" x="16" y="169" width="249" height="25"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="gmh-E2-Ddz" userLabel="First Stack View">
+                                <rect key="frame" x="16" y="169" width="172" height="25"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2gB-pr-ZTd" userLabel="DateView" customClass="DateView" customModule="MovingAverageCharts" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="124.5" height="25"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2gB-pr-ZTd" userLabel="DateView" customClass="DateView" customModule="MovingAverageCharts" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="25"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tTK-kT-iyS" userLabel="StockPriceView" customClass="PERatioPriceView" customModule="MovingAverageCharts" customModuleProvider="target">
-                                        <rect key="frame" x="124.5" y="0.0" width="124.5" height="25"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tTK-kT-iyS" userLabel="StockPriceView" customClass="PERatioPriceView" customModule="MovingAverageCharts" customModuleProvider="target">
+                                        <rect key="frame" x="102" y="0.0" width="70" height="25"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                 </subviews>
@@ -34,18 +34,18 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fuI-3N-76q" userLabel="Second Stack View">
-                                <rect key="frame" x="16" y="194" width="373" height="25"/>
+                                <rect key="frame" x="16" y="194" width="372.5" height="25"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fPm-o5-0NO" userLabel="PERatioPriceView1" customClass="PERatioPriceView" customModule="MovingAverageCharts" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fPm-o5-0NO" userLabel="PERatioPriceView1" customClass="PERatioPriceView" customModule="MovingAverageCharts" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="124.5" height="25"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W6M-J4-f5w" userLabel="PERatioPriceView2" customClass="PERatioPriceView" customModule="MovingAverageCharts" customModuleProvider="target">
-                                        <rect key="frame" x="125" y="0.0" width="124" height="25"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W6M-J4-f5w" userLabel="PERatioPriceView2" customClass="PERatioPriceView" customModule="MovingAverageCharts" customModuleProvider="target">
+                                        <rect key="frame" x="124.5" y="0.0" width="124" height="25"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZkB-bd-Esx" userLabel="PERatioPriceView3" customClass="PERatioPriceView" customModule="MovingAverageCharts" customModuleProvider="target">
-                                        <rect key="frame" x="249" y="0.0" width="124" height="25"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZkB-bd-Esx" userLabel="PERatioPriceView3" customClass="PERatioPriceView" customModule="MovingAverageCharts" customModuleProvider="target">
+                                        <rect key="frame" x="248.5" y="0.0" width="124" height="25"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                 </subviews>
@@ -54,18 +54,18 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Hcg-Fj-gut" userLabel="Third Stack View">
-                                <rect key="frame" x="16" y="229" width="373" height="25"/>
+                                <rect key="frame" x="16" y="229" width="372.5" height="25"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VHz-I3-dc7" userLabel="PERatioPriceView4" customClass="PERatioPriceView" customModule="MovingAverageCharts" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VHz-I3-dc7" userLabel="PERatioPriceView4" customClass="PERatioPriceView" customModule="MovingAverageCharts" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="124.5" height="25"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cWx-Wa-wyZ" userLabel="PERatioPriceView5" customClass="PERatioPriceView" customModule="MovingAverageCharts" customModuleProvider="target">
-                                        <rect key="frame" x="125" y="0.0" width="124" height="25"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cWx-Wa-wyZ" userLabel="PERatioPriceView5" customClass="PERatioPriceView" customModule="MovingAverageCharts" customModuleProvider="target">
+                                        <rect key="frame" x="124.5" y="0.0" width="124" height="25"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XC1-NX-oQN" userLabel="PERatioPriceView6" customClass="PERatioPriceView" customModule="MovingAverageCharts" customModuleProvider="target">
-                                        <rect key="frame" x="249" y="0.0" width="124" height="25"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XC1-NX-oQN" userLabel="PERatioPriceView6" customClass="PERatioPriceView" customModule="MovingAverageCharts" customModuleProvider="target">
+                                        <rect key="frame" x="248.5" y="0.0" width="124" height="25"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                 </subviews>
@@ -77,14 +77,14 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fuI-3N-76q" secondAttribute="trailing" constant="25" id="8IQ-35-GHa"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="fuI-3N-76q" secondAttribute="trailing" constant="25" id="8IQ-35-GHa"/>
                             <constraint firstItem="Hcg-Fj-gut" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="185" id="H17-7y-dCW"/>
                             <constraint firstItem="gmh-E2-Ddz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="125" id="HBm-01-ek3"/>
                             <constraint firstItem="Hcg-Fj-gut" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="RoO-ri-Qzp"/>
                             <constraint firstItem="fuI-3N-76q" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="eiv-Oc-lfR"/>
                             <constraint firstItem="gmh-E2-Ddz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="pWB-In-cJ0"/>
                             <constraint firstItem="fuI-3N-76q" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="suv-eJ-oP5"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Hcg-Fj-gut" secondAttribute="trailing" constant="25" id="y4q-kI-uGR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Hcg-Fj-gut" secondAttribute="trailing" constant="25" id="y4q-kI-uGR"/>
                         </constraints>
                     </view>
                     <connections>
