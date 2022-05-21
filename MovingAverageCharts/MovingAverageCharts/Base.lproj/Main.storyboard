@@ -1,24 +1,105 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MovingAverageCharts" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="gmh-E2-Ddz" userLabel="First Stack View">
+                                <rect key="frame" x="16" y="169" width="249" height="25"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2gB-pr-ZTd" userLabel="DateView" customClass="DateView" customModule="MovingAverageCharts" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="124.5" height="25"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tTK-kT-iyS" userLabel="PERatioPriceView" customClass="PERatioPriceView" customModule="MovingAverageCharts" customModuleProvider="target">
+                                        <rect key="frame" x="124.5" y="0.0" width="124.5" height="25"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="E2d-o5-j34"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fuI-3N-76q" userLabel="Second Stack View">
+                                <rect key="frame" x="16" y="194" width="373" height="25"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fPm-o5-0NO" userLabel="PERatioPriceView" customClass="PERatioPriceView" customModule="MovingAverageCharts" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="124.5" height="25"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W6M-J4-f5w" userLabel="PERatioPriceView" customClass="PERatioPriceView" customModule="MovingAverageCharts" customModuleProvider="target">
+                                        <rect key="frame" x="125" y="0.0" width="124" height="25"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZkB-bd-Esx" userLabel="PERatioPriceView" customClass="PERatioPriceView" customModule="MovingAverageCharts" customModuleProvider="target">
+                                        <rect key="frame" x="249" y="0.0" width="124" height="25"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="Cuc-rA-QDE"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Hcg-Fj-gut" userLabel="Third Stack View">
+                                <rect key="frame" x="16" y="229" width="373" height="25"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VHz-I3-dc7" userLabel="PERatioPriceView" customClass="PERatioPriceView" customModule="MovingAverageCharts" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="124.5" height="25"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cWx-Wa-wyZ" userLabel="PERatioPriceView" customClass="PERatioPriceView" customModule="MovingAverageCharts" customModuleProvider="target">
+                                        <rect key="frame" x="125" y="0.0" width="124" height="25"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XC1-NX-oQN" userLabel="PERatioPriceView" customClass="PERatioPriceView" customModule="MovingAverageCharts" customModuleProvider="target">
+                                        <rect key="frame" x="249" y="0.0" width="124" height="25"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="0ju-Zi-4ha"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fuI-3N-76q" secondAttribute="trailing" constant="25" id="8IQ-35-GHa"/>
+                            <constraint firstItem="Hcg-Fj-gut" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="185" id="H17-7y-dCW"/>
+                            <constraint firstItem="gmh-E2-Ddz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="125" id="HBm-01-ek3"/>
+                            <constraint firstItem="Hcg-Fj-gut" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="RoO-ri-Qzp"/>
+                            <constraint firstItem="fuI-3N-76q" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="eiv-Oc-lfR"/>
+                            <constraint firstItem="gmh-E2-Ddz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="pWB-In-cJ0"/>
+                            <constraint firstItem="fuI-3N-76q" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="suv-eJ-oP5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Hcg-Fj-gut" secondAttribute="trailing" constant="25" id="y4q-kI-uGR"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="dataView" destination="2gB-pr-ZTd" id="xXE-yV-Ozc"/>
+                        <outlet property="secondPEView" destination="tTK-kT-iyS" id="nUx-Fq-68w"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="113.04347826086958" y="83.705357142857139"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

@@ -13,6 +13,12 @@
 		6B1A863A2837604B00D8FEFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B1A86382837604B00D8FEFD /* Main.storyboard */; };
 		6B1A863C2837604E00D8FEFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B1A863B2837604E00D8FEFD /* Assets.xcassets */; };
 		6B1A863F2837604E00D8FEFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B1A863D2837604E00D8FEFD /* LaunchScreen.storyboard */; };
+		6BC4584328377B8700963872 /* PERatioPriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC4584228377B8700963872 /* PERatioPriceView.swift */; };
+		6BC4584528377B9400963872 /* PERatioPriceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BC4584428377B9400963872 /* PERatioPriceView.xib */; };
+		6BC458472837801300963872 /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC458462837801300963872 /* UIViewExt.swift */; };
+		6BC4584A2838118C00963872 /* DateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC458492838118B00963872 /* DateView.swift */; };
+		6BC4584C283811A300963872 /* DateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BC4584B283811A300963872 /* DateView.xib */; };
+		6BC4584E283896E900963872 /* NibNameEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC4584D283896E900963872 /* NibNameEnum.swift */; };
 		B1284F70827FBC061EB32180 /* Pods_MovingAverageCharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE5B4DBF6D7838CDC9466082 /* Pods_MovingAverageCharts.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +31,12 @@
 		6B1A863B2837604E00D8FEFD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6B1A863E2837604E00D8FEFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6B1A86402837604E00D8FEFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6BC4584228377B8700963872 /* PERatioPriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PERatioPriceView.swift; sourceTree = "<group>"; };
+		6BC4584428377B9400963872 /* PERatioPriceView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PERatioPriceView.xib; sourceTree = "<group>"; };
+		6BC458462837801300963872 /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
+		6BC458492838118B00963872 /* DateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateView.swift; sourceTree = "<group>"; };
+		6BC4584B283811A300963872 /* DateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DateView.xib; sourceTree = "<group>"; };
+		6BC4584D283896E900963872 /* NibNameEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibNameEnum.swift; sourceTree = "<group>"; };
 		A96C63A44504B0BEDCF0873A /* Pods-MovingAverageCharts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovingAverageCharts.release.xcconfig"; path = "Target Support Files/Pods-MovingAverageCharts/Pods-MovingAverageCharts.release.xcconfig"; sourceTree = "<group>"; };
 		BAE618434123687040F518F8 /* Pods-MovingAverageCharts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovingAverageCharts.debug.xcconfig"; path = "Target Support Files/Pods-MovingAverageCharts/Pods-MovingAverageCharts.debug.xcconfig"; sourceTree = "<group>"; };
 		DE5B4DBF6D7838CDC9466082 /* Pods_MovingAverageCharts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovingAverageCharts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,6 +75,7 @@
 		6B1A86312837604B00D8FEFD /* MovingAverageCharts */ = {
 			isa = PBXGroup;
 			children = (
+				6BC458482837801B00963872 /* Extension */,
 				6B1A86322837604B00D8FEFD /* AppDelegate.swift */,
 				6B1A86342837604B00D8FEFD /* SceneDelegate.swift */,
 				6B1A86362837604B00D8FEFD /* ViewController.swift */,
@@ -70,8 +83,21 @@
 				6B1A863B2837604E00D8FEFD /* Assets.xcassets */,
 				6B1A863D2837604E00D8FEFD /* LaunchScreen.storyboard */,
 				6B1A86402837604E00D8FEFD /* Info.plist */,
+				6BC4584228377B8700963872 /* PERatioPriceView.swift */,
+				6BC4584428377B9400963872 /* PERatioPriceView.xib */,
+				6BC458492838118B00963872 /* DateView.swift */,
+				6BC4584B283811A300963872 /* DateView.xib */,
+				6BC4584D283896E900963872 /* NibNameEnum.swift */,
 			);
 			path = MovingAverageCharts;
+			sourceTree = "<group>";
+		};
+		6BC458482837801B00963872 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				6BC458462837801300963872 /* UIViewExt.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		CB9A1FAEC6FCE151F15E774B /* Pods */ = {
@@ -80,7 +106,6 @@
 				BAE618434123687040F518F8 /* Pods-MovingAverageCharts.debug.xcconfig */,
 				A96C63A44504B0BEDCF0873A /* Pods-MovingAverageCharts.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -153,8 +178,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B1A863F2837604E00D8FEFD /* LaunchScreen.storyboard in Resources */,
+				6BC4584C283811A300963872 /* DateView.xib in Resources */,
 				6B1A863C2837604E00D8FEFD /* Assets.xcassets in Resources */,
 				6B1A863A2837604B00D8FEFD /* Main.storyboard in Resources */,
+				6BC4584528377B9400963872 /* PERatioPriceView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,9 +234,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BC4584A2838118C00963872 /* DateView.swift in Sources */,
 				6B1A86372837604B00D8FEFD /* ViewController.swift in Sources */,
+				6BC4584E283896E900963872 /* NibNameEnum.swift in Sources */,
 				6B1A86332837604B00D8FEFD /* AppDelegate.swift in Sources */,
+				6BC458472837801300963872 /* UIViewExt.swift in Sources */,
 				6B1A86352837604B00D8FEFD /* SceneDelegate.swift in Sources */,
+				6BC4584328377B8700963872 /* PERatioPriceView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
