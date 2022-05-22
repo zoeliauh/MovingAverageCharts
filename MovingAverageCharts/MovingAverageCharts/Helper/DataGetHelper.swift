@@ -32,7 +32,7 @@ class DataGetHelper {
                     someMovingAverageData.append(allMovingAverageData[index])
                     date.insert("/", at: date.index(date.startIndex, offsetBy: 4))
                     yearMonth.append(date)
-                    pointDataDic.updateValue(j.peRatioBase[dataIndex], forKey: "\(date)")
+                    pointDataDic.updateValue(j.peRatioBase.reversed()[dataIndex], forKey: "\(date)")
                     index += 1
                 } 
             }
