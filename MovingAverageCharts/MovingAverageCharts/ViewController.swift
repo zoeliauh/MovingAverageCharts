@@ -20,13 +20,14 @@ class ViewController: UIViewController {
     @IBOutlet private weak var movingAverageChartView: LineChartView!
     
     let jsonParseHelper = JSONParseHelper()
-    var tsmcModel: TSMCModel?
-    var allMovingAverageData: [MovingAverageData]?
-    var oneYearMovingAverageData: [MovingAverageData] = []
-    var yearMonth: [String] = []
-    var stockPrice: [String] = []
-    var lineChartDic: [String: String] = [:]
-    var entries: [ChartDataEntry]?
+//    var tsmcModel: TSMCModel?
+//    var allMovingAverageData: [MovingAverageData]?
+//    var someMovingAverageData: [MovingAverageData] = []
+    var yearMonthArray: [String] = []
+    var stockPriceArray: [String] = []
+//    var stockPriceDic: [String: String] = [:]
+    var peRationBaseDic: [String: String] = [:]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,67 +40,105 @@ class ViewController: UIViewController {
         self.peRatioPriceView5.configureView(color: .purple, labelTitle: "10.4倍145.6")
         self.peRatioPriceView6.configureView(color: .black, labelTitle: "9.7倍43.4")
         // get data
-        tsmcModel = jsonParseHelper.parseJson(form: JSONFileName.TSMCMovingAverage.rawValue)
-        getData(monthCount: 12)
+//        tsmcModel = jsonParseHelper.parseJson(form: JSONFileName.TSMCMovingAverage.rawValue)
+//        getStockPrice(monthCount: 12)
+//        DataGetHelper.shared.getStockPrice(monthCount: 12, stockPriceDic: stockPriceDic)
+//        DataGetHelper.shared.getPointData(monthCount: 12, pointDataDic: peRationBaseDic, dataIndex: 0)
+//        getPeRationBase(monthCount: 12)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         // setup chart
         setupXAxis()
         setupYAxis()
-        setupData(xAxis: yearMonth, values: stockPrice)
+//        setupData(xAxis: yearMonthArray, values: stockPriceArray)
+        setupStockPriceLineChart(monthCount: 12, xAxis: yearMonthArray, values: stockPriceArray)
+        
     }
     
-    private func getData(monthCount: Int) {
-        guard let tsmcModel = tsmcModel else { return }
-        var index = 0
-        for i in tsmcModel.data {
-            allMovingAverageData = i.movingAverageData
-            guard let allMovingAverageData = allMovingAverageData else { return }
-            
-            for j in allMovingAverageData {
-                if index < monthCount {
-                    var date = j.date
-                    oneYearMovingAverageData.append(allMovingAverageData[index])
-                    date.insert("/", at: date.index(date.startIndex, offsetBy: 4))
-                    yearMonth.append(date)
-                    lineChartDic.updateValue(j.monthAveragePrice, forKey: "\(date)")
-                    index += 1
-                } else {
-//                    print(yearMonth)
-//                    print(lineChartDic)
-                    return
-                }
-            }
-        }
-    }
+//    private func getStockPrice(monthCount: Int) {
+//        guard let tsmcModel = tsmcModel else { return }
+//        var index = 0
+//        for i in tsmcModel.data {
+//            allMovingAverageData = i.movingAverageData
+//            guard let allMovingAverageData = allMovingAverageData else { return }
+//
+//            for j in allMovingAverageData {
+//                if index < monthCount {
+//                    var date = j.date
+//                    someMovingAverageData.append(allMovingAverageData[index])
+//                    date.insert("/", at: date.index(date.startIndex, offsetBy: 4))
+//                    yearMonthArray.append(date)
+//                    stockPriceDic.updateValue(j.monthAveragePrice, forKey: "\(date)")
+//                    index += 1
+//                } else {
+////                    print(yearMonth)
+//                    print(stockPriceDic)
+//                    return
+//                }
+//            }
+//        }
+//    }
     
-    private func setupData(xAxis: [String], values: [String]) {
+//    private func getPeRationBase(monthCount: Int) {
+//        guard let tsmcModel = tsmcModel else { return }
+//        var index = 0
+//        for i in tsmcModel.data {
+//            allMovingAverageData = i.movingAverageData
+//            guard let allMovingAverageData = allMovingAverageData else { return }
+//
+//            for j in allMovingAverageData {
+//                if index < monthCount {
+//                    var date = j.date
+//                    someMovingAverageData.append(allMovingAverageData[index])
+//                    date.insert("/", at: date.index(date.startIndex, offsetBy: 4))
+//                    yearMonth.append(date)
+//                    peRationBaseDic.updateValue(j.peRatioBase[0], forKey: "\(date)")
+//                    index += 1
+//                } else {
+////                    print(yearMonth)
+//                    print(peRationBaseDic)
+//                    return
+//                }
+//            }
+//        }
+//    }
+    
+    private func setupStockPriceLineChart(monthCount:Int, xAxis: [String], values: [String]) {
+        let stockPriceDic: [String: String] = [:]
         movingAverageChartView.noDataText = "wait loading..."
         movingAverageChartView.setScaleEnabled(false)
-
-        let sortedKeysAndValue = lineChartDic.sorted { $0.0 < $1.0 }
-        for (key, value) in sortedKeysAndValue {
-//            print("\(key) -> \(value)")
-            yearMonth.append(key)
-            stockPrice.append(value)
-        }
-        
-        entries = stockPrice.enumerated().map {
-            return ChartDataEntry.init(x: Double($0), y: Double($1)!)
-        }
-        
-        let set = LineChartDataSet.init(entries: entries)
-        set.drawCirclesEnabled = false
-        set.drawValuesEnabled = false
-        set.lineWidth = 2.0
-        set.setColor(.red)
-        set.drawHorizontalHighlightIndicatorEnabled = false
-        
-        let data = LineChartData(dataSets: [set])
-        movingAverageChartView.data = data
+        DataGetHelper.shared.getStockPrice(monthCount: monthCount, stockPriceDic: stockPriceDic, completion: { [weak self] (result) in
+            var entries: [ChartDataEntry]?
+            guard let result = result else { return }
+//            print("result is \(String(describing: result))")
+            let sortedKeysAndValue = result.sorted { $0.0 < $1.0 }
+            for (key, value) in sortedKeysAndValue {
+                //            print("\(key) -> \(value)")
+                self?.yearMonthArray.append(key)
+                self?.stockPriceArray.append(value)
+            }
+            
+            entries = self?.stockPriceArray.enumerated().map {
+                return ChartDataEntry.init(x: Double($0), y: Double($1)!)
+            }
+            
+            let set = LineChartDataSet.init(entries: entries)
+            set.drawCirclesEnabled = false
+            set.drawValuesEnabled = false
+            set.lineWidth = 2.0
+            set.setColor(.red)
+            set.drawHorizontalHighlightIndicatorEnabled = false
+            
+            let data = LineChartData(dataSets: [set])
+            self?.movingAverageChartView.data = data
+        })
     }
     
     private func setupXAxis() {
-        movingAverageChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: yearMonth.reversed())
+        movingAverageChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: yearMonthArray.reversed())
         movingAverageChartView.xAxis.labelFont = UIFont.systemFont(ofSize: 5)
         movingAverageChartView.xAxis.labelPosition = .bottom
         movingAverageChartView.xAxis.drawAxisLineEnabled = false
