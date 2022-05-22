@@ -34,11 +34,7 @@ class DataGetHelper {
                     yearMonth.append(date)
                     pointDataDic.updateValue(j.peRatioBase[dataIndex], forKey: "\(date)")
                     index += 1
-                } else {
-//                    print(yearMonth)
-//                    print(pointDataDic)
-                    return
-                }
+                } 
             }
             completion(pointDataDic)
         }
@@ -62,9 +58,6 @@ class DataGetHelper {
                     yearMonth.append(date)
                     stockPriceDic.updateValue(j.monthAveragePrice, forKey: "\(date)")
                     index += 1
-                } else {
-//                    print(yearMonth)
-//                    print("stockPriceDic is (\(stockPriceDic)")
                 }
             }
             completion(stockPriceDic)
