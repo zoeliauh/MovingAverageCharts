@@ -64,92 +64,22 @@ class ViewController: UIViewController {
         movingAverageChartView.noDataText = "wait loading..."
         movingAverageChartView.setScaleEnabled(false)
         
-        DataGetHelper.shared.getStockPrice(monthCount: monthCount, stockPriceDic: stockPriceDic) { [weak self] (result) in
+        DataGetHelper.shared.getPointData(monthCount: monthCount, pointDataDic: peRationBaseDic, dataIndex: 5) { [weak self] (result) in
             var entries: [ChartDataEntry]?
             guard let result = result else { return }
             let sortedKeysAndValue = result.sorted { $0.0 < $1.0 }
             for (key, value) in sortedKeysAndValue {
                 self?.yearMonthArray.append(key)
-                self?.stockPriceArray.append(value)
-            }
-            entries = self?.stockPriceArray.enumerated().map {
-                return ChartDataEntry.init(x: Double($0), y: Double($1)!)
+                self?.peRationPriceArray6.append(value)
             }
             
-            let set = LineChartDataSet.init(entries: entries, label: "stockPrice")
-            self?.configureSet(set: set, lineWidth: 2.0, color: .red)
-            self?.chartdata.addDataSet(set)
-        }
-        
-        DataGetHelper.shared.getPointData(monthCount: monthCount, pointDataDic: peRationBaseDic, dataIndex: 0) { [weak self] (result) in
-            var entries: [ChartDataEntry]?
-            guard let result = result else { return }
-            let sortedKeysAndValue = result.sorted { $0.0 < $1.0 }
-            for (key, value) in sortedKeysAndValue {
-                self?.yearMonthArray.append(key)
-                self?.peRationPriceArray1.append(value)
-            }
-            
-            entries = self?.peRationPriceArray1.enumerated().map {
+            entries = self?.peRationPriceArray6.enumerated().map {
                 return ChartDataEntry.init(x: Double($0), y: Double($1)!)
             }
             
             let set = LineChartDataSet.init(entries: entries)
-            self?.configureSet(set: set, lineWidth: 0.5, color: .black)
-            self?.chartdata.addDataSet(set)
-        }
-        
-        DataGetHelper.shared.getPointData(monthCount: monthCount, pointDataDic: peRationBaseDic, dataIndex: 1) { [weak self] (result) in
-            var entries: [ChartDataEntry]?
-            guard let result = result else { return }
-            let sortedKeysAndValue = result.sorted { $0.0 < $1.0 }
-            for (key, value) in sortedKeysAndValue {
-                self?.yearMonthArray.append(key)
-                self?.peRationPriceArray2.append(value)
-            }
-            
-            entries = self?.peRationPriceArray2.enumerated().map {
-                return ChartDataEntry.init(x: Double($0), y: Double($1)!)
-            }
-            
-            let set = LineChartDataSet.init(entries: entries)
-            self?.configureSet(set: set, lineWidth: 0.5, color: .purple)
-            self?.chartdata.addDataSet(set)
-        }
-        
-        DataGetHelper.shared.getPointData(monthCount: monthCount, pointDataDic: peRationBaseDic, dataIndex: 2) { [weak self] (result) in
-            var entries: [ChartDataEntry]?
-            guard let result = result else { return }
-            let sortedKeysAndValue = result.sorted { $0.0 < $1.0 }
-            for (key, value) in sortedKeysAndValue {
-                self?.yearMonthArray.append(key)
-                self?.peRationPriceArray3.append(value)
-            }
-            
-            entries = self?.peRationPriceArray3.enumerated().map {
-                return ChartDataEntry.init(x: Double($0), y: Double($1)!)
-            }
-            
-            let set = LineChartDataSet.init(entries: entries)
-            self?.configureSet(set: set, lineWidth: 0.5, color: .blue)
-            self?.chartdata.addDataSet(set)
-        }
-        
-        DataGetHelper.shared.getPointData(monthCount: monthCount, pointDataDic: peRationBaseDic, dataIndex: 3) { [weak self] (result) in
-            var entries: [ChartDataEntry]?
-            guard let result = result else { return }
-            let sortedKeysAndValue = result.sorted { $0.0 < $1.0 }
-            for (key, value) in sortedKeysAndValue {
-                self?.yearMonthArray.append(key)
-                self?.peRationPriceArray4.append(value)
-            }
-            
-            entries = self?.peRationPriceArray4.enumerated().map {
-                return ChartDataEntry.init(x: Double($0), y: Double($1)!)
-            }
-            
-            let set = LineChartDataSet.init(entries: entries)
-            self?.configureSet(set: set, lineWidth: 0.5, color: .green)
+            set.fillAlpha = 1
+            self?.configureSet(set: set, lineWidth: 0.5, color: .orange, isfilled: true)
             self?.chartdata.addDataSet(set)
         }
         
@@ -167,32 +97,108 @@ class ViewController: UIViewController {
             }
             
             let set = LineChartDataSet.init(entries: entries)
-            self?.configureSet(set: set, lineWidth: 0.5, color: .yellow)
+            set.fillAlpha = 1
+            self?.configureSet(set: set, lineWidth: 0.5, color: .yellow, isfilled: true)
             self?.chartdata.addDataSet(set)
         }
         
-        DataGetHelper.shared.getPointData(monthCount: monthCount, pointDataDic: peRationBaseDic, dataIndex: 5) { [weak self] (result) in
+        DataGetHelper.shared.getPointData(monthCount: monthCount, pointDataDic: peRationBaseDic, dataIndex: 3) { [weak self] (result) in
             var entries: [ChartDataEntry]?
             guard let result = result else { return }
             let sortedKeysAndValue = result.sorted { $0.0 < $1.0 }
             for (key, value) in sortedKeysAndValue {
                 self?.yearMonthArray.append(key)
-                self?.peRationPriceArray6.append(value)
+                self?.peRationPriceArray4.append(value)
             }
             
-            entries = self?.peRationPriceArray6.enumerated().map {
+            entries = self?.peRationPriceArray4.enumerated().map {
                 return ChartDataEntry.init(x: Double($0), y: Double($1)!)
             }
             
             let set = LineChartDataSet.init(entries: entries)
-            self?.configureSet(set: set, lineWidth: 0.5, color: .orange)
+            set.fillAlpha = 1
+            self?.configureSet(set: set, lineWidth: 0.5, color: .green, isfilled: true)
             self?.chartdata.addDataSet(set)
         }
+        
+        DataGetHelper.shared.getPointData(monthCount: monthCount, pointDataDic: peRationBaseDic, dataIndex: 2) { [weak self] (result) in
+            var entries: [ChartDataEntry]?
+            guard let result = result else { return }
+            let sortedKeysAndValue = result.sorted { $0.0 < $1.0 }
+            for (key, value) in sortedKeysAndValue {
+                self?.yearMonthArray.append(key)
+                self?.peRationPriceArray3.append(value)
+            }
+            
+            entries = self?.peRationPriceArray3.enumerated().map {
+                return ChartDataEntry.init(x: Double($0), y: Double($1)!)
+            }
+            
+            let set = LineChartDataSet.init(entries: entries)
+            set.fillAlpha = 1
+            self?.configureSet(set: set, lineWidth: 0.5, color: .blue, isfilled: true)
+            self?.chartdata.addDataSet(set)
+        }
+        
+        DataGetHelper.shared.getPointData(monthCount: monthCount, pointDataDic: peRationBaseDic, dataIndex: 1) { [weak self] (result) in
+            var entries: [ChartDataEntry]?
+            guard let result = result else { return }
+            let sortedKeysAndValue = result.sorted { $0.0 < $1.0 }
+            for (key, value) in sortedKeysAndValue {
+                self?.yearMonthArray.append(key)
+                self?.peRationPriceArray2.append(value)
+            }
+            
+            entries = self?.peRationPriceArray2.enumerated().map {
+                return ChartDataEntry.init(x: Double($0), y: Double($1)!)
+            }
+            
+            let set = LineChartDataSet.init(entries: entries)
+            set.fillAlpha = 1
+            self?.configureSet(set: set, lineWidth: 0.5, color: .purple, isfilled: true)
+            self?.chartdata.addDataSet(set)
+        }
+        
+        DataGetHelper.shared.getPointData(monthCount: monthCount, pointDataDic: peRationBaseDic, dataIndex: 0) { [weak self] (result) in
+            var entries: [ChartDataEntry]?
+            guard let result = result else { return }
+            let sortedKeysAndValue = result.sorted { $0.0 < $1.0 }
+            for (key, value) in sortedKeysAndValue {
+                self?.yearMonthArray.append(key)
+                self?.peRationPriceArray1.append(value)
+            }
+            
+            entries = self?.peRationPriceArray1.enumerated().map {
+                return ChartDataEntry.init(x: Double($0), y: Double($1)!)
+            }
+            
+            let set = LineChartDataSet.init(entries: entries)
+            self?.configureSet(set: set, lineWidth: 0.5, color: .white, isfilled: true)
+            set.setColors(.black)
+            self?.chartdata.addDataSet(set)
+        }
+    
+        DataGetHelper.shared.getStockPrice(monthCount: monthCount, stockPriceDic: stockPriceDic) { [weak self] (result) in
+            var entries: [ChartDataEntry]?
+            guard let result = result else { return }
+            let sortedKeysAndValue = result.sorted { $0.0 < $1.0 }
+            for (key, value) in sortedKeysAndValue {
+                self?.yearMonthArray.append(key)
+                self?.stockPriceArray.append(value)
+            }
+            entries = self?.stockPriceArray.enumerated().map {
+                return ChartDataEntry.init(x: Double($0), y: Double($1)!)
+            }
+            
+            let set = LineChartDataSet.init(entries: entries)
+            self?.configureSet(set: set, lineWidth: 2.0, color: .red, isfilled: false)
+            self?.chartdata.addDataSet(set)
+        }
+        movingAverageChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: yearMonthArray)
         movingAverageChartView.data = chartdata
     }
     
     private func setupXAxis() {
-        movingAverageChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: yearMonthArray.reversed())
         movingAverageChartView.xAxis.labelFont = UIFont.systemFont(ofSize: 5)
         movingAverageChartView.xAxis.labelPosition = .bottom
         movingAverageChartView.xAxis.drawAxisLineEnabled = false
@@ -205,11 +211,18 @@ class ViewController: UIViewController {
         movingAverageChartView.legend.enabled = false
     }
     
-    private func configureSet(set: LineChartDataSet, lineWidth: Double, color: UIColor) {
+    private func configureSet(set: LineChartDataSet, lineWidth: Double, color: UIColor, isfilled: Bool) {
+        let endColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0)
+        let gradColors = [color.cgColor, endColor.cgColor]
+        let colorLocations: [CGFloat] = [0.0, 1.0]
+        guard let gradient = CGGradient.init(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: gradColors as CFArray, locations: colorLocations) else { return }
+        set.fill = Fill.fillWithLinearGradient(gradient, angle: -90)
         set.drawCirclesEnabled = false
         set.drawValuesEnabled = false
+        set.drawFilledEnabled = isfilled
         set.lineWidth = lineWidth
         set.setColor(color)
+//        set.fillColor = color
         set.drawHorizontalHighlightIndicatorEnabled = false
     }
 }
