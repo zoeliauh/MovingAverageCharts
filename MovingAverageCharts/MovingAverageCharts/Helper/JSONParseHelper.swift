@@ -15,7 +15,6 @@ class JSONParseHelper {
         do {
             let jsonData = try Data(contentsOf: url)
             let data = try JSONDecoder().decode(T.self, from: jsonData)
-//            print(data)
             return data
         } catch {
             fatalError()

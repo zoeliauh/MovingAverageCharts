@@ -20,11 +20,11 @@ class ViewController: UIViewController {
     @IBOutlet private weak var movingAverageChartView: LineChartView!
     
     let jsonParseHelper = JSONParseHelper()
-    let movieAverageGraph = LineChartData()
     var chartdata = LineChartData()
     
     var yearMonthArray: [String] = []
     var stockPriceArray: [String] = []
+    var epsArray: [String] = []
     
     var peRationPriceArray1: [String] = []
     var peRationPriceArray2: [String] = []
@@ -32,18 +32,19 @@ class ViewController: UIViewController {
     var peRationPriceArray4: [String] = []
     var peRationPriceArray5: [String] = []
     var peRationPriceArray6: [String] = []
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        movingAverageChartView.delegate = self
         
-        self.dataView.configureView(title: "2021/04")
-        self.stockPriceView.configureView(color: .red, labelTitle: "股價xxx")
-        self.peRatioPriceView1.configureView(color: .orange, labelTitle: "22倍543.4")
-        self.peRatioPriceView2.configureView(color: .yellow, labelTitle: "19.5倍435.2")
-        self.peRatioPriceView3.configureView(color: .green, labelTitle: "17.8倍356.7")
-        self.peRatioPriceView4.configureView(color: .blue, labelTitle: "14.3倍222.1")
-        self.peRatioPriceView5.configureView(color: .purple, labelTitle: "10.4倍145.6")
-        self.peRatioPriceView6.configureView(color: .black, labelTitle: "9.7倍43.4")
+        self.dataView.configureView(title: "2022/05")
+        self.stockPriceView.configureView(color: .red, labelTitle: "股價530")
+        self.peRatioPriceView1.configureView(color: .orange, labelTitle: "31.83倍810.04")
+        self.peRatioPriceView2.configureView(color: .yellow, labelTitle: "28.23倍718.45")
+        self.peRatioPriceView3.configureView(color: .green, labelTitle: "24.63倍626.83")
+        self.peRatioPriceView4.configureView(color: .blue, labelTitle: "21.03倍535.21")
+        self.peRatioPriceView5.configureView(color: .purple, labelTitle: "17.43倍443.59")
+        self.peRatioPriceView6.configureView(color: .black, labelTitle: "13.83倍251.97")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,10 +53,13 @@ class ViewController: UIViewController {
         setupXAxis()
         setupYAxis()
         setupLineChart(monthCount: 12, xAxis: yearMonthArray, values: stockPriceArray)
+        getEpsData(monthCount: 12)
     }
     
-    private func drawChart(dataSets: [LineChartDataSet]) {
-        movingAverageChartView.data = chartdata
+    deinit {
+        print("=======================")
+        print(self, #function, "released")
+        print("=======================")
     }
     
     private func setupLineChart(monthCount:Int, xAxis: [String], values: [String]) {
@@ -142,7 +146,7 @@ class ViewController: UIViewController {
             }
         }
         
-        DataGetHelper.shared.getStockPrice(monthCount: monthCount, stockPriceDic: stockPriceDic) { [weak self] (result) in
+        DataGetHelper.shared.getData(monthCount: monthCount, stockPriceDic: stockPriceDic, epsDic: nil) { [weak self] (result) in
             var entries: [ChartDataEntry]?
             guard let result = result else { return }
             let sortedKeysAndValue = result.sorted { $0.0 < $1.0 }
@@ -160,6 +164,19 @@ class ViewController: UIViewController {
         }
         movingAverageChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: yearMonthArray)
         movingAverageChartView.data = chartdata
+    }
+    
+    private func getEpsData(monthCount: Int) {
+        let epsDic: [String: String] = [:]
+        DataGetHelper.shared.getData(monthCount: monthCount, stockPriceDic: nil, epsDic: epsDic) { [weak self]
+            (result) in
+            guard let result = result else { return }
+            let sortedKeysAndValue = result.sorted { $0.0 < $1.0 }
+            for (key, value) in sortedKeysAndValue {
+                self?.yearMonthArray.append(key)
+                self?.epsArray.append(value)
+            }
+        }
     }
     
     private func setupXAxis() {
@@ -188,5 +205,26 @@ class ViewController: UIViewController {
         set.setColor(color)
         set.fillAlpha = 1
         set.drawHorizontalHighlightIndicatorEnabled = false
+    }
+}
+
+extension ViewController: ChartViewDelegate {
+    func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
+        let x = Int(highlight.x)
+        let eps1 = String(format: "%.2f", Double(peRationPriceArray1[x])!/Double(epsArray[x])!)
+        let eps2 = String(format: "%.2f", Double(peRationPriceArray2[x])!/Double(epsArray[x])!)
+        let eps3 = String(format: "%.2f", Double(peRationPriceArray3[x])!/Double(epsArray[x])!)
+        let eps4 = String(format: "%.2f", Double(peRationPriceArray4[x])!/Double(epsArray[x])!)
+        let eps5 = String(format: "%.2f", Double(peRationPriceArray5[x])!/Double(epsArray[x])!)
+        let eps6 = String(format: "%.2f", Double(peRationPriceArray6[x])!/Double(epsArray[x])!)
+        
+        dataView.configureView(title: "\(yearMonthArray[x])")
+        stockPriceView.configureView(color: .red, labelTitle: "股價\(stockPriceArray[x])")
+        peRatioPriceView1.configureView(color: .orange, labelTitle: "\(eps1)倍\(peRationPriceArray1[x])")
+        peRatioPriceView2.configureView(color: .yellow, labelTitle: "\(eps2)倍\(peRationPriceArray2[x])")
+        peRatioPriceView3.configureView(color: .green, labelTitle: "\(eps3)倍\(peRationPriceArray3[x])")
+        peRatioPriceView4.configureView(color: .blue, labelTitle: "\(eps4)倍\(peRationPriceArray4[x])")
+        peRatioPriceView5.configureView(color: .purple, labelTitle: "\(eps5)倍\(peRationPriceArray5[x])")
+        peRatioPriceView6.configureView(color: .black, labelTitle: "\(eps6)倍\(peRationPriceArray6[x])")
     }
 }

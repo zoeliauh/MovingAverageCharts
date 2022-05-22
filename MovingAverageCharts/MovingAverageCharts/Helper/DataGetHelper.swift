@@ -40,11 +40,11 @@ class DataGetHelper {
         }
     }
     
-    // read data for stock price
-    func getStockPrice(monthCount: Int, stockPriceDic: [String: String], completion: @escaping ([String: String]?) -> Void) {
+    func getData(monthCount: Int, stockPriceDic: [String: String]?, epsDic: [String: String]?, completion: @escaping ([String: String]?) -> Void) {
         tsmcModel = jsonParseHelper.parseJson(form: JSONFileName.TSMCMovingAverage.rawValue)
         guard let tsmcModel = tsmcModel else { return }
         var stockPriceDic = stockPriceDic
+        var epsDic = epsDic
         var index = 0
         for i in tsmcModel.data {
             allMovingAverageData = i.movingAverageData
@@ -56,11 +56,13 @@ class DataGetHelper {
                     someMovingAverageData.append(allMovingAverageData[index])
                     date.insert("/", at: date.index(date.startIndex, offsetBy: 4))
                     yearMonth.append(date)
-                    stockPriceDic.updateValue(j.monthAveragePrice, forKey: "\(date)")
+                    stockPriceDic?.updateValue(j.monthAveragePrice, forKey: "\(date)")
+                    epsDic?.updateValue(j.eps, forKey: "\(date)")
                     index += 1
                 }
             }
             completion(stockPriceDic)
+            completion(epsDic)
         }
     }
 }
