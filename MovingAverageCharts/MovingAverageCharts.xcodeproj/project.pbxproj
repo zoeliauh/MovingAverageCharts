@@ -13,6 +13,7 @@
 		6B1A863A2837604B00D8FEFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B1A86382837604B00D8FEFD /* Main.storyboard */; };
 		6B1A863C2837604E00D8FEFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B1A863B2837604E00D8FEFD /* Assets.xcassets */; };
 		6B1A863F2837604E00D8FEFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B1A863D2837604E00D8FEFD /* LaunchScreen.storyboard */; };
+		6B35F98E2839E4F3005CACD2 /* DataGetHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B35F98D2839E4F3005CACD2 /* DataGetHelper.swift */; };
 		6BC4584328377B8700963872 /* PERatioPriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC4584228377B8700963872 /* PERatioPriceView.swift */; };
 		6BC4584528377B9400963872 /* PERatioPriceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BC4584428377B9400963872 /* PERatioPriceView.xib */; };
 		6BC458472837801300963872 /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC458462837801300963872 /* UIViewExt.swift */; };
@@ -34,6 +35,7 @@
 		6B1A863B2837604E00D8FEFD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6B1A863E2837604E00D8FEFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6B1A86402837604E00D8FEFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6B35F98D2839E4F3005CACD2 /* DataGetHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataGetHelper.swift; sourceTree = "<group>"; };
 		6BC4584228377B8700963872 /* PERatioPriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PERatioPriceView.swift; sourceTree = "<group>"; };
 		6BC4584428377B9400963872 /* PERatioPriceView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PERatioPriceView.xib; sourceTree = "<group>"; };
 		6BC458462837801300963872 /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				6BC458572838A6F200963872 /* JSONParseHelper.swift */,
+				6B35F98D2839E4F3005CACD2 /* DataGetHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 				6B1A86372837604B00D8FEFD /* ViewController.swift in Sources */,
 				6BC458582838A6F300963872 /* JSONParseHelper.swift in Sources */,
 				6BC458552838A06300963872 /* TSMCModel.swift in Sources */,
+				6B35F98E2839E4F3005CACD2 /* DataGetHelper.swift in Sources */,
 				6BC4584E283896E900963872 /* NibNameEnum.swift in Sources */,
 				6B1A86332837604B00D8FEFD /* AppDelegate.swift in Sources */,
 				6BC458472837801300963872 /* UIViewExt.swift in Sources */,
