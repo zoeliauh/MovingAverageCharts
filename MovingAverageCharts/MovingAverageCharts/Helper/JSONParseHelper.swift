@@ -1,6 +1,5 @@
 //
 //  JSONparseHelper.swift
-//  MovingAverageCharts
 //
 //  Created by woanjwu liauh on 2022/5/21.
 //
@@ -16,7 +15,7 @@ class JSONParseHelper {
         do {
             let jsonData = try Data(contentsOf: url)
             let data = try JSONDecoder().decode(T.self, from: jsonData)
-            print(data)
+//            print(data)
             return data
         } catch {
             fatalError()
