@@ -13,6 +13,17 @@
 		6B1A863A2837604B00D8FEFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B1A86382837604B00D8FEFD /* Main.storyboard */; };
 		6B1A863C2837604E00D8FEFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B1A863B2837604E00D8FEFD /* Assets.xcassets */; };
 		6B1A863F2837604E00D8FEFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B1A863D2837604E00D8FEFD /* LaunchScreen.storyboard */; };
+		6B35F98E2839E4F3005CACD2 /* DataGetHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B35F98D2839E4F3005CACD2 /* DataGetHelper.swift */; };
+		6BC4584328377B8700963872 /* PERatioPriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC4584228377B8700963872 /* PERatioPriceView.swift */; };
+		6BC4584528377B9400963872 /* PERatioPriceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BC4584428377B9400963872 /* PERatioPriceView.xib */; };
+		6BC458472837801300963872 /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC458462837801300963872 /* UIViewExt.swift */; };
+		6BC4584A2838118C00963872 /* DateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC458492838118B00963872 /* DateView.swift */; };
+		6BC4584C283811A300963872 /* DateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BC4584B283811A300963872 /* DateView.xib */; };
+		6BC4584E283896E900963872 /* NibNameEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC4584D283896E900963872 /* NibNameEnum.swift */; };
+		6BC4585128389D3800963872 /* TSMCMovingAverage.json in Resources */ = {isa = PBXBuildFile; fileRef = 6BC4585028389D3700963872 /* TSMCMovingAverage.json */; };
+		6BC458552838A06300963872 /* TSMCModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC458542838A06300963872 /* TSMCModel.swift */; };
+		6BC458582838A6F300963872 /* JSONParseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC458572838A6F200963872 /* JSONParseHelper.swift */; };
+		B1284F70827FBC061EB32180 /* Pods_MovingAverageCharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE5B4DBF6D7838CDC9466082 /* Pods_MovingAverageCharts.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +35,19 @@
 		6B1A863B2837604E00D8FEFD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6B1A863E2837604E00D8FEFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6B1A86402837604E00D8FEFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6B35F98D2839E4F3005CACD2 /* DataGetHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataGetHelper.swift; sourceTree = "<group>"; };
+		6BC4584228377B8700963872 /* PERatioPriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PERatioPriceView.swift; sourceTree = "<group>"; };
+		6BC4584428377B9400963872 /* PERatioPriceView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PERatioPriceView.xib; sourceTree = "<group>"; };
+		6BC458462837801300963872 /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
+		6BC458492838118B00963872 /* DateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateView.swift; sourceTree = "<group>"; };
+		6BC4584B283811A300963872 /* DateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DateView.xib; sourceTree = "<group>"; };
+		6BC4584D283896E900963872 /* NibNameEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibNameEnum.swift; sourceTree = "<group>"; };
+		6BC4585028389D3700963872 /* TSMCMovingAverage.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TSMCMovingAverage.json; sourceTree = "<group>"; };
+		6BC458542838A06300963872 /* TSMCModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSMCModel.swift; sourceTree = "<group>"; };
+		6BC458572838A6F200963872 /* JSONParseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParseHelper.swift; sourceTree = "<group>"; };
+		A96C63A44504B0BEDCF0873A /* Pods-MovingAverageCharts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovingAverageCharts.release.xcconfig"; path = "Target Support Files/Pods-MovingAverageCharts/Pods-MovingAverageCharts.release.xcconfig"; sourceTree = "<group>"; };
+		BAE618434123687040F518F8 /* Pods-MovingAverageCharts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovingAverageCharts.debug.xcconfig"; path = "Target Support Files/Pods-MovingAverageCharts/Pods-MovingAverageCharts.debug.xcconfig"; sourceTree = "<group>"; };
+		DE5B4DBF6D7838CDC9466082 /* Pods_MovingAverageCharts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovingAverageCharts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1284F70827FBC061EB32180 /* Pods_MovingAverageCharts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +67,8 @@
 			children = (
 				6B1A86312837604B00D8FEFD /* MovingAverageCharts */,
 				6B1A86302837604B00D8FEFD /* Products */,
+				CB9A1FAEC6FCE151F15E774B /* Pods */,
+				E7A4BC0B000F95237634722A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +83,11 @@
 		6B1A86312837604B00D8FEFD /* MovingAverageCharts */ = {
 			isa = PBXGroup;
 			children = (
+				6BC458562838A6D200963872 /* Helper */,
+				6BC458532838A03600963872 /* Model */,
+				6BC4585228389D4200963872 /* JSONData */,
+				6BC458482837801B00963872 /* Extension */,
+				6BC4584F2838986500963872 /* Xib */,
 				6B1A86322837604B00D8FEFD /* AppDelegate.swift */,
 				6B1A86342837604B00D8FEFD /* SceneDelegate.swift */,
 				6B1A86362837604B00D8FEFD /* ViewController.swift */,
@@ -67,6 +99,68 @@
 			path = MovingAverageCharts;
 			sourceTree = "<group>";
 		};
+		6BC458482837801B00963872 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				6BC458462837801300963872 /* UIViewExt.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		6BC4584F2838986500963872 /* Xib */ = {
+			isa = PBXGroup;
+			children = (
+				6BC4584D283896E900963872 /* NibNameEnum.swift */,
+				6BC4584228377B8700963872 /* PERatioPriceView.swift */,
+				6BC4584428377B9400963872 /* PERatioPriceView.xib */,
+				6BC458492838118B00963872 /* DateView.swift */,
+				6BC4584B283811A300963872 /* DateView.xib */,
+			);
+			path = Xib;
+			sourceTree = "<group>";
+		};
+		6BC4585228389D4200963872 /* JSONData */ = {
+			isa = PBXGroup;
+			children = (
+				6BC4585028389D3700963872 /* TSMCMovingAverage.json */,
+			);
+			path = JSONData;
+			sourceTree = "<group>";
+		};
+		6BC458532838A03600963872 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6BC458542838A06300963872 /* TSMCModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6BC458562838A6D200963872 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				6BC458572838A6F200963872 /* JSONParseHelper.swift */,
+				6B35F98D2839E4F3005CACD2 /* DataGetHelper.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		CB9A1FAEC6FCE151F15E774B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BAE618434123687040F518F8 /* Pods-MovingAverageCharts.debug.xcconfig */,
+				A96C63A44504B0BEDCF0873A /* Pods-MovingAverageCharts.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		E7A4BC0B000F95237634722A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DE5B4DBF6D7838CDC9466082 /* Pods_MovingAverageCharts.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +168,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6B1A86432837604E00D8FEFD /* Build configuration list for PBXNativeTarget "MovingAverageCharts" */;
 			buildPhases = (
+				E050EF9B71F1177EF62DC84D /* [CP] Check Pods Manifest.lock */,
 				6B1A862B2837604B00D8FEFD /* Sources */,
 				6B1A862C2837604B00D8FEFD /* Frameworks */,
 				6B1A862D2837604B00D8FEFD /* Resources */,
+				6E059FB5D8326CD7E977DC4E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -125,22 +221,74 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BC4585128389D3800963872 /* TSMCMovingAverage.json in Resources */,
 				6B1A863F2837604E00D8FEFD /* LaunchScreen.storyboard in Resources */,
+				6BC4584C283811A300963872 /* DateView.xib in Resources */,
 				6B1A863C2837604E00D8FEFD /* Assets.xcassets in Resources */,
 				6B1A863A2837604B00D8FEFD /* Main.storyboard in Resources */,
+				6BC4584528377B9400963872 /* PERatioPriceView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6E059FB5D8326CD7E977DC4E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MovingAverageCharts/Pods-MovingAverageCharts-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MovingAverageCharts/Pods-MovingAverageCharts-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MovingAverageCharts/Pods-MovingAverageCharts-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E050EF9B71F1177EF62DC84D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MovingAverageCharts-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6B1A862B2837604B00D8FEFD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BC4584A2838118C00963872 /* DateView.swift in Sources */,
 				6B1A86372837604B00D8FEFD /* ViewController.swift in Sources */,
+				6BC458582838A6F300963872 /* JSONParseHelper.swift in Sources */,
+				6BC458552838A06300963872 /* TSMCModel.swift in Sources */,
+				6B35F98E2839E4F3005CACD2 /* DataGetHelper.swift in Sources */,
+				6BC4584E283896E900963872 /* NibNameEnum.swift in Sources */,
 				6B1A86332837604B00D8FEFD /* AppDelegate.swift in Sources */,
+				6BC458472837801300963872 /* UIViewExt.swift in Sources */,
 				6B1A86352837604B00D8FEFD /* SceneDelegate.swift in Sources */,
+				6BC4584328377B8700963872 /* PERatioPriceView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +432,7 @@
 		};
 		6B1A86442837604E00D8FEFD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BAE618434123687040F518F8 /* Pods-MovingAverageCharts.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -297,6 +446,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -313,6 +463,7 @@
 		};
 		6B1A86452837604E00D8FEFD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A96C63A44504B0BEDCF0873A /* Pods-MovingAverageCharts.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -326,6 +477,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
