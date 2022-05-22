@@ -32,7 +32,7 @@ class ViewController: UIViewController {
     var peRationPriceArray4: [String] = []
     var peRationPriceArray5: [String] = []
     var peRationPriceArray6: [String] = []
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         movingAverageChartView.delegate = self
@@ -54,6 +54,12 @@ class ViewController: UIViewController {
         setupYAxis()
         setupLineChart(monthCount: 12, xAxis: yearMonthArray, values: stockPriceArray)
         getEpsData(monthCount: 12)
+    }
+    
+    deinit {
+        print("=======================")
+        print(self, #function, "released")
+        print("=======================")
     }
     
     private func setupLineChart(monthCount:Int, xAxis: [String], values: [String]) {
@@ -140,7 +146,7 @@ class ViewController: UIViewController {
             }
         }
         
-        DataGetHelper.shared.getStockPrice(monthCount: monthCount, stockPriceDic: stockPriceDic) { [weak self] (result) in
+        DataGetHelper.shared.getData(monthCount: monthCount, stockPriceDic: stockPriceDic, epsDic: nil) { [weak self] (result) in
             var entries: [ChartDataEntry]?
             guard let result = result else { return }
             let sortedKeysAndValue = result.sorted { $0.0 < $1.0 }
@@ -162,7 +168,7 @@ class ViewController: UIViewController {
     
     private func getEpsData(monthCount: Int) {
         let epsDic: [String: String] = [:]
-        DataGetHelper.shared.getEps(monthCount: monthCount, epsDic: epsDic) { [weak self]
+        DataGetHelper.shared.getData(monthCount: monthCount, stockPriceDic: nil, epsDic: epsDic) { [weak self]
             (result) in
             guard let result = result else { return }
             let sortedKeysAndValue = result.sorted { $0.0 < $1.0 }
@@ -204,20 +210,21 @@ class ViewController: UIViewController {
 
 extension ViewController: ChartViewDelegate {
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
-        let eps1 = String(format: "%.2f", Double(peRationPriceArray1[Int(highlight.x)])!/Double(epsArray[Int(highlight.x)])!)
-        let eps2 = String(format: "%.2f", Double(peRationPriceArray2[Int(highlight.x)])!/Double(epsArray[Int(highlight.x)])!)
-        let eps3 = String(format: "%.2f", Double(peRationPriceArray3[Int(highlight.x)])!/Double(epsArray[Int(highlight.x)])!)
-        let eps4 = String(format: "%.2f", Double(peRationPriceArray4[Int(highlight.x)])!/Double(epsArray[Int(highlight.x)])!)
-        let eps5 = String(format: "%.2f", Double(peRationPriceArray5[Int(highlight.x)])!/Double(epsArray[Int(highlight.x)])!)
-        let eps6 = String(format: "%.2f", Double(peRationPriceArray6[Int(highlight.x)])!/Double(epsArray[Int(highlight.x)])!)
+        let x = Int(highlight.x)
+        let eps1 = String(format: "%.2f", Double(peRationPriceArray1[x])!/Double(epsArray[x])!)
+        let eps2 = String(format: "%.2f", Double(peRationPriceArray2[x])!/Double(epsArray[x])!)
+        let eps3 = String(format: "%.2f", Double(peRationPriceArray3[x])!/Double(epsArray[x])!)
+        let eps4 = String(format: "%.2f", Double(peRationPriceArray4[x])!/Double(epsArray[x])!)
+        let eps5 = String(format: "%.2f", Double(peRationPriceArray5[x])!/Double(epsArray[x])!)
+        let eps6 = String(format: "%.2f", Double(peRationPriceArray6[x])!/Double(epsArray[x])!)
         
-        dataView.configureView(title: "\(yearMonthArray[Int(highlight.x)])")
-        stockPriceView.configureView(color: .red, labelTitle: "股價\(stockPriceArray[Int(highlight.x)])")
-        peRatioPriceView1.configureView(color: .orange, labelTitle: "\(eps1)倍\(peRationPriceArray1[Int(highlight.x)])")
-        peRatioPriceView2.configureView(color: .yellow, labelTitle: "\(eps2)倍\(peRationPriceArray2[Int(highlight.x)])")
-        peRatioPriceView3.configureView(color: .green, labelTitle: "\(eps3)倍\(peRationPriceArray3[Int(highlight.x)])")
-        peRatioPriceView4.configureView(color: .blue, labelTitle: "\(eps4)倍\(peRationPriceArray4[Int(highlight.x)])")
-        peRatioPriceView5.configureView(color: .purple, labelTitle: "\(eps5)倍\(peRationPriceArray5[Int(highlight.x)])")
-        peRatioPriceView6.configureView(color: .black, labelTitle: "\(eps6)倍\(peRationPriceArray6[Int(highlight.x)])")
+        dataView.configureView(title: "\(yearMonthArray[x])")
+        stockPriceView.configureView(color: .red, labelTitle: "股價\(stockPriceArray[x])")
+        peRatioPriceView1.configureView(color: .orange, labelTitle: "\(eps1)倍\(peRationPriceArray1[x])")
+        peRatioPriceView2.configureView(color: .yellow, labelTitle: "\(eps2)倍\(peRationPriceArray2[x])")
+        peRatioPriceView3.configureView(color: .green, labelTitle: "\(eps3)倍\(peRationPriceArray3[x])")
+        peRatioPriceView4.configureView(color: .blue, labelTitle: "\(eps4)倍\(peRationPriceArray4[x])")
+        peRatioPriceView5.configureView(color: .purple, labelTitle: "\(eps5)倍\(peRationPriceArray5[x])")
+        peRatioPriceView6.configureView(color: .black, labelTitle: "\(eps6)倍\(peRationPriceArray6[x])")
     }
 }

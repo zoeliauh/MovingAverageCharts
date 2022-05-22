@@ -40,34 +40,10 @@ class DataGetHelper {
         }
     }
     
-    // read data for stock price
-    func getStockPrice(monthCount: Int, stockPriceDic: [String: String], completion: @escaping ([String: String]?) -> Void) {
+    func getData(monthCount: Int, stockPriceDic: [String: String]?, epsDic: [String: String]?, completion: @escaping ([String: String]?) -> Void) {
         tsmcModel = jsonParseHelper.parseJson(form: JSONFileName.TSMCMovingAverage.rawValue)
         guard let tsmcModel = tsmcModel else { return }
         var stockPriceDic = stockPriceDic
-        var index = 0
-        for i in tsmcModel.data {
-            allMovingAverageData = i.movingAverageData
-            guard let allMovingAverageData = allMovingAverageData else { return }
-            
-            for j in allMovingAverageData {
-                if index < monthCount {
-                    var date = j.date
-                    someMovingAverageData.append(allMovingAverageData[index])
-                    date.insert("/", at: date.index(date.startIndex, offsetBy: 4))
-                    yearMonth.append(date)
-                    stockPriceDic.updateValue(j.monthAveragePrice, forKey: "\(date)")
-                    index += 1
-                }
-            }
-            completion(stockPriceDic)
-        }
-    }
-    
-    // read data for eps
-    func getEps(monthCount: Int, epsDic: [String: String], completion: @escaping ([String: String]?) -> Void) {
-        tsmcModel = jsonParseHelper.parseJson(form: JSONFileName.TSMCMovingAverage.rawValue)
-        guard let tsmcModel = tsmcModel else { return }
         var epsDic = epsDic
         var index = 0
         for i in tsmcModel.data {
@@ -80,10 +56,12 @@ class DataGetHelper {
                     someMovingAverageData.append(allMovingAverageData[index])
                     date.insert("/", at: date.index(date.startIndex, offsetBy: 4))
                     yearMonth.append(date)
-                    epsDic.updateValue(j.eps, forKey: "\(date)")
+                    stockPriceDic?.updateValue(j.monthAveragePrice, forKey: "\(date)")
+                    epsDic?.updateValue(j.eps, forKey: "\(date)")
                     index += 1
                 }
             }
+            completion(stockPriceDic)
             completion(epsDic)
         }
     }
